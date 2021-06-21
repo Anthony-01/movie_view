@@ -37,6 +37,7 @@ import MovieIndexHeader from '@/components/MovieIndexHeader'
 import MovieList from '@/components/MovieList'
 import NewList from '@/components/NewList'
 import UserMessage from '@/components/UserMessage'
+import {xhr} from '../api/xhr';
 export default {
     data () {
         return {
@@ -50,6 +51,14 @@ export default {
         MovieList,
         NewList,
         UserMessage
+    },
+    mounted() {
+        xhr({
+            method: 'get',
+            url: '/api/data'
+        }).then((res) => {
+            console.log(res);
+        })
     }
 }
 </script>
